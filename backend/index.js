@@ -37,7 +37,7 @@ app.get('/get-pdf', async (req, res) => {
 
     // Generate the PDF buffer
     const pdfBuffer = await page.pdf();
-    console.log(pdfBuffer);
+   
 
     await browser.close();
 
@@ -50,7 +50,7 @@ app.get('/get-pdf', async (req, res) => {
 app.post('/save-signature', async (req, res) => {
     const { signatureDataUrl } = req.body;
     const {name, days} = dbData
-    console.log(signatureDataUrl)
+    
 
     // Assuming signatureDataUrl is directly used in the template
     const pdfContentWithSignature = templatePdf({ name, days, signature: signatureDataUrl });
