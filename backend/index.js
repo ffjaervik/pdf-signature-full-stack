@@ -55,7 +55,7 @@ app.post('/save-signature', async (req, res) => {
     // Assuming signatureDataUrl is directly used in the template
     const pdfContentWithSignature = templatePdf({ name, days, signature: signatureDataUrl });
     
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({ headless: 'new' });
     const page = await browser.newPage();
 
     // Set the content and wait for a short period to ensure rendering is complete
